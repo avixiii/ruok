@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:ruok/features/chat/screens/chats.dart';
+import 'package:ruok/features/home/screens/home.dart';
+import 'package:ruok/features/mentally/screens/mentally.dart';
+import 'package:ruok/features/post/screens/post.dart';
+import 'package:ruok/features/profile/screens/profile.dart';
 import 'package:ruok/utils/constants/colors.dart';
 import 'package:ruok/utils/helpers/helper_functions.dart';
 
@@ -25,7 +30,10 @@ class NavigationMenu extends StatelessWidget {
               : ColorConstants.black.withOpacity(0.1),
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: "Home"),
-            NavigationDestination(icon: Icon(Iconsax.heart), label: "Mental"),
+            NavigationDestination(icon: Icon(Iconsax.heart), label: "Mentally"),
+            NavigationDestination(icon: Icon(Iconsax.add), label: "Create"),
+            NavigationDestination(
+                icon: Icon(Iconsax.message), label: "Message"),
             NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
           ],
         ),
@@ -39,10 +47,10 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    Container(color: Colors.green),
-    Container(color: Colors.purple),
-    Container(
-      color: Colors.orange,
-    )
+    const HomeScreen(),
+    const MentallyScreen(),
+    const PostCreationScreen(),
+    const ChatsScreen(),
+    const ProfileScreen()
   ];
 }
